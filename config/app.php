@@ -123,4 +123,14 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Web Application Secret
+    |--------------------------------------------------------------------------
+    |
+    | This secret is used to protect the web application.
+    |
+    */
+
+    'web_app_secret' => env('WEB_APP_SECRET', ''),
 ];

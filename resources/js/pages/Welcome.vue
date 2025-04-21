@@ -61,6 +61,13 @@ import axios from 'axios';
 export default {
     name: 'SonosRemoteController',
 
+    props: {
+        secret: {
+            type: String,
+            required: false,
+        },
+    },
+
     data() {
         return {
             rooms: [],
@@ -76,6 +83,21 @@ export default {
     },
 
     mounted() {
+        axios.interceptors.request.use(
+            (config) => {
+                if (this.secret) {
+                    // Add ?secret to query string if secret is provided
+                    const url = new URL(config.url, window.location.origin);
+                    url.searchParams.append('secret', this.secret);
+                    config.url = url.toString();
+                }
+                return config;
+            },
+            (error) => {
+                return Promise.reject(error);
+            },
+        );
+
         this.fetchRooms();
     },
 

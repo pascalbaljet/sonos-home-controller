@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\SonosController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
+Route::get('/', function (Request $request) {
+    return Inertia::render('Welcome', [
+        'secret' => $request->query('secret'),
+    ]);
 })->name('home');
 
 Route::prefix('api/sonos')->group(function () {
