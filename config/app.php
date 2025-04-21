@@ -123,19 +123,4 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | HTTP Basic Authentication
-    |--------------------------------------------------------------------------
-    |
-    | This configuration option allows you to set up HTTP Basic Authentication
-    | for your application.
-    |
-    */
-
-    'http_auth' => [
-        'user' => env('HTTP_AUTH_USER', ''),
-        'password' => env('HTTP_AUTH_PASSWORD', ''),
-    ],
-
 ];
